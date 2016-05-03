@@ -1,0 +1,28 @@
+body{
+	background-color: #B0E0E6;
+}
+.body_right{
+	width : 1000px;
+	padding-bottom: 32768px;
+	margin-bottom: -32768px;
+	float : left;
+	background-image: url("back.png");
+}
+.in_menu{
+	overflow:hidden;
+	width: 1000px;
+}
+table{
+	table-layout: fixed;
+	border: groove 2px;
+	border-collapse: separate;
+}
+table.select_s{
+	text-align: center;
+	border: 2px none;
+	border-spacing: 10px;
+}
+table.e_t{
+	text-align: center;
+	background-color : #ddffff
+}
