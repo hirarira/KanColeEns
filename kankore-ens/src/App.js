@@ -19,13 +19,31 @@ function App() {
   const classes = useStyles();
   const hourList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20, 24];
   const minutesList = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
-  const [enseiHour, setEnseiHour] = React.useState('');
-  const [enseiMinutes, setEnseiMinutes] = React.useState('');
+  const needLabel = ["とても欲しい", "結構ほしい", "どちらでもない", "少し欲しい", "全くいらない"];
+  const [enseiHour, setEnseiHour] = React.useState(1);
+  const [enseiMinutes, setEnseiMinutes] = React.useState(0);
+  const [needFuel, setNeedFuel] = React.useState(2);
+  const [needBullet, setNeedBulle] = React.useState(2);
+  const [needSteel, setNeedSteel] = React.useState(2);
+  const [needBauxite, setNeedBauxite] = React.useState(2);
+
   const changeEnseiHour = event => {
     setEnseiHour(event.target.value);
   };
   const changeEnseiMinutes = event => {
     setEnseiMinutes(event.target.value);
+  };
+  const changeFuel = event => {
+    setNeedFuel(event.target.value);
+  };
+  const changeBulle = event => {
+    setNeedBulle(event.target.value);
+  };
+  const changeSteel = event => {
+    setNeedSteel(event.target.value);
+  };
+  const changeBauxite = event => {
+    setNeedBauxite(event.target.value);
   };
   return (
     <div className="App">
@@ -36,17 +54,15 @@ function App() {
         </Grid>
         <Grid item xs={3}>
           <FormControl className={classes.formControl}>
-            <InputLabel id="enseiHour">時間</InputLabel>
+            <InputLabel>時間</InputLabel>
             <Select
-              labelId="enseiHour"
-              id="enseiHourSelect"
               value={enseiHour}
               onChange={changeEnseiHour}
             >
               {
-                hourList.map((x) =>{
+                hourList.map((x, id) =>{
                   return (
-                    <MenuItem value={x}>{x}</MenuItem>
+                    <MenuItem key={id} value={x}>{x}</MenuItem>
                   )
                 })
               }
@@ -55,17 +71,15 @@ function App() {
         </Grid>
         <Grid item xs={3}>
           <FormControl className={classes.formControl}>
-          <InputLabel id="enseiMinutes">分</InputLabel>
+          <InputLabel>分</InputLabel>
             <Select
-              labelId="enseiMinutes"
-              id="enseiMinutesSelect"
               value={enseiMinutes}
               onChange={changeEnseiMinutes}
             >
               {
-                minutesList.map((x) =>{
+                minutesList.map((x, id) =>{
                   return (
-                    <MenuItem value={x}>{x}</MenuItem>
+                    <MenuItem key={id} value={x}>{x}</MenuItem>
                   )
                 })
               }
@@ -74,6 +88,32 @@ function App() {
         </Grid>
         <Grid item xs={3}>
           燃料
+        </Grid>
+        <Grid item xs={3}>
+          弾薬
+        </Grid>
+        <Grid item xs={3}>
+          鋼材
+        </Grid>
+        <Grid item xs={3}>
+          ボーキ
+        </Grid>
+        <Grid item xs={3}>
+          <FormControl className={classes.formControl}>
+            <InputLabel>時間</InputLabel>
+            <Select
+              value={needFuel}
+              onChange={changeFuel}
+            >
+              {
+                needLabel.map((x, id) =>{
+                  return (
+                    <MenuItem key={id} value={needLabel.length - id - 1}>{x}</MenuItem>
+                  )
+                })
+              }
+            </Select>
+          </FormControl>
         </Grid>
         <Grid item xs={3}>
           弾薬
