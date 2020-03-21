@@ -86,21 +86,9 @@ function App() {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={3}>
-          燃料
-        </Grid>
-        <Grid item xs={3}>
-          弾薬
-        </Grid>
-        <Grid item xs={3}>
-          鋼材
-        </Grid>
-        <Grid item xs={3}>
-          ボーキ
-        </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={6}>
           <FormControl className={classes.formControl}>
-            <InputLabel>時間</InputLabel>
+            <InputLabel>燃料</InputLabel>
             <Select
               value={needFuel}
               onChange={changeFuel}
@@ -115,14 +103,56 @@ function App() {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={3}>
-          弾薬
+        <Grid item xs={6}>
+          <FormControl className={classes.formControl}>
+          <InputLabel>弾薬</InputLabel>
+            <Select
+              value={needBullet}
+              onChange={changeBulle}
+            >
+              {
+                needLabel.map((x, id) =>{
+                  return (
+                    <MenuItem key={id} value={needLabel.length - id - 1}>{x}</MenuItem>
+                  )
+                })
+              }
+            </Select>
+          </FormControl>
         </Grid>
-        <Grid item xs={3}>
-          鋼材
+        <Grid item xs={6}>
+          <FormControl className={classes.formControl}>
+            <InputLabel>鋼材</InputLabel>
+            <Select
+              value={needSteel}
+              onChange={changeSteel}
+            >
+              {
+                needLabel.map((x, id) =>{
+                  return (
+                    <MenuItem key={id} value={needLabel.length - id - 1}>{x}</MenuItem>
+                  )
+                })
+              }
+            </Select>
+          </FormControl>
         </Grid>
-        <Grid item xs={3}>
-          ボーキ
+        <Grid item xs={6}>
+          <FormControl className={classes.formControl}>
+            <InputLabel>ボーキサイト</InputLabel>
+            <Select
+              value={needBauxite}
+              onChange={changeBauxite}
+            >
+              {
+                needLabel.map((x, id) =>{
+                  return (
+                    <MenuItem key={id} value={needLabel.length - id - 1}>{x}</MenuItem>
+                  )
+                })
+              }
+            </Select>
+          </FormControl>
         </Grid>
       </Grid>
     </div>
