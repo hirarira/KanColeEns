@@ -1,8 +1,10 @@
 import React from 'react';
 import { makeStyles, FormControl, InputLabel, 
-  Select, MenuItem, Grid, Button } from '@material-ui/core';
+  Select, MenuItem, Grid } from '@material-ui/core';
 
 import './App.css';
+
+import Search from './lib/Search';
 
 function App() {
   const useStyles = makeStyles(theme => ({
@@ -13,8 +15,11 @@ function App() {
     selectEmpty: {
       marginTop: theme.spacing(2),
     },
-    textBody: {
+    body: {
       textAlign: 'center'
+    },
+    mainBody: {
+      maxWidth: '600px'
     }
   }));
   const classes = useStyles();
@@ -49,116 +54,122 @@ function App() {
   return (
     <div className="App">
       <h2 className="header">艦これ　遠征支援プログラム ver2.0</h2>
-      <Grid container spacing={3} alignItems="center" className={classes.textBody}>
-        <Grid item xs={5}>
-          遠征に出す時間：
-        </Grid>
-        <Grid item xs={3}>
-          <FormControl className={classes.formControl}>
-            <InputLabel>時間</InputLabel>
-            <Select
-              value={enseiHour}
-              onChange={changeEnseiHour}
-            >
-              {
-                hourList.map((x, id) =>{
-                  return (
-                    <MenuItem key={id} value={x}>{x}</MenuItem>
-                  )
-                })
-              }
-            </Select>
-          </FormControl>
-        </Grid>
-        <Grid item xs={3}>
-          <FormControl className={classes.formControl}>
-          <InputLabel>分</InputLabel>
-            <Select
-              value={enseiMinutes}
-              onChange={changeEnseiMinutes}
-            >
-              {
-                minutesList.map((x, id) =>{
-                  return (
-                    <MenuItem key={id} value={x}>{x}</MenuItem>
-                  )
-                })
-              }
-            </Select>
-          </FormControl>
-        </Grid>
-        <Grid item xs={6}>
-          <FormControl className={classes.formControl}>
-            <InputLabel>燃料</InputLabel>
-            <Select
-              value={needFuel}
-              onChange={changeFuel}
-            >
-              {
-                needLabel.map((x, id) =>{
-                  return (
-                    <MenuItem key={id} value={needLabel.length - id - 1}>{x}</MenuItem>
-                  )
-                })
-              }
-            </Select>
-          </FormControl>
-        </Grid>
-        <Grid item xs={6}>
-          <FormControl className={classes.formControl}>
-          <InputLabel>弾薬</InputLabel>
-            <Select
-              value={needBullet}
-              onChange={changeBulle}
-            >
-              {
-                needLabel.map((x, id) =>{
-                  return (
-                    <MenuItem key={id} value={needLabel.length - id - 1}>{x}</MenuItem>
-                  )
-                })
-              }
-            </Select>
-          </FormControl>
-        </Grid>
-        <Grid item xs={6}>
-          <FormControl className={classes.formControl}>
-            <InputLabel>鋼材</InputLabel>
-            <Select
-              value={needSteel}
-              onChange={changeSteel}
-            >
-              {
-                needLabel.map((x, id) =>{
-                  return (
-                    <MenuItem key={id} value={needLabel.length - id - 1}>{x}</MenuItem>
-                  )
-                })
-              }
-            </Select>
-          </FormControl>
-        </Grid>
-        <Grid item xs={6}>
-          <FormControl className={classes.formControl}>
-            <InputLabel>ボーキサイト</InputLabel>
-            <Select
-              value={needBauxite}
-              onChange={changeBauxite}
-            >
-              {
-                needLabel.map((x, id) =>{
-                  return (
-                    <MenuItem key={id} value={needLabel.length - id - 1}>{x}</MenuItem>
-                  )
-                })
-              }
-            </Select>
-          </FormControl>
+      <Grid container justify="center" className={classes.body}>
+        <Grid container spacing={3} alignItems="center" className={classes.mainBody} >
+          <Grid item xs={5}>
+            遠征に出す時間：
+          </Grid>
+          <Grid item xs={3}>
+            <FormControl className={classes.formControl}>
+              <InputLabel>時間</InputLabel>
+              <Select
+                value={enseiHour}
+                onChange={changeEnseiHour}
+              >
+                {
+                  hourList.map((x, id) =>{
+                    return (
+                      <MenuItem key={id} value={x}>{x}</MenuItem>
+                    )
+                  })
+                }
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={3}>
+            <FormControl className={classes.formControl}>
+            <InputLabel>分</InputLabel>
+              <Select
+                value={enseiMinutes}
+                onChange={changeEnseiMinutes}
+              >
+                {
+                  minutesList.map((x, id) =>{
+                    return (
+                      <MenuItem key={id} value={x}>{x}</MenuItem>
+                    )
+                  })
+                }
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={6}>
+            <FormControl className={classes.formControl}>
+              <InputLabel>燃料</InputLabel>
+              <Select
+                value={needFuel}
+                onChange={changeFuel}
+              >
+                {
+                  needLabel.map((x, id) =>{
+                    return (
+                      <MenuItem key={id} value={needLabel.length - id - 1}>{x}</MenuItem>
+                    )
+                  })
+                }
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={6}>
+            <FormControl className={classes.formControl}>
+            <InputLabel>弾薬</InputLabel>
+              <Select
+                value={needBullet}
+                onChange={changeBulle}
+              >
+                {
+                  needLabel.map((x, id) =>{
+                    return (
+                      <MenuItem key={id} value={needLabel.length - id - 1}>{x}</MenuItem>
+                    )
+                  })
+                }
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={6}>
+            <FormControl className={classes.formControl}>
+              <InputLabel>鋼材</InputLabel>
+              <Select
+                value={needSteel}
+                onChange={changeSteel}
+              >
+                {
+                  needLabel.map((x, id) =>{
+                    return (
+                      <MenuItem key={id} value={needLabel.length - id - 1}>{x}</MenuItem>
+                    )
+                  })
+                }
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={6}>
+            <FormControl className={classes.formControl}>
+              <InputLabel>ボーキサイト</InputLabel>
+              <Select
+                value={needBauxite}
+                onChange={changeBauxite}
+              >
+                {
+                  needLabel.map((x, id) =>{
+                    return (
+                      <MenuItem key={id} value={needLabel.length - id - 1}>{x}</MenuItem>
+                    )
+                  })
+                }
+              </Select>
+            </FormControl>
+          </Grid>
         </Grid>
         <Grid item xs={12}>
-          <Button variant="contained" color="primary">
-            検索
-          </Button>
+          <Search
+            time={enseiHour*60+enseiMinutes}
+            fuel={needFuel}
+            bullet={needBullet}
+            steel={needSteel}
+            bauxite={needBauxite}
+          />
         </Grid>
       </Grid>
     </div>
