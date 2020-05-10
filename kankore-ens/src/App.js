@@ -1,5 +1,6 @@
 import React from 'react';
-import { makeStyles, FormControl, InputLabel, Select, MenuItem, Grid } from '@material-ui/core';
+import { makeStyles, FormControl, InputLabel, 
+  Select, MenuItem, Grid, Button } from '@material-ui/core';
 
 import './App.css';
 
@@ -153,6 +154,11 @@ function App() {
               }
             </Select>
           </FormControl>
+        </Grid>
+        <Grid item xs={12}>
+          <Button variant="contained" color="primary">
+            検索
+          </Button>
         </Grid>
       </Grid>
     </div>
