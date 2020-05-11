@@ -15,6 +15,15 @@ function Search(props) {
         + (props.steel*ninmu.steel) + (props.bauxite*ninmu.bauxite);
       return ninmu;
     });
+    canNinmuList.sort((a, b)=>{
+      if(a.point > b.point) {
+        return -1;
+      }
+      if(a.point < b.point) {
+        return 1;
+      }
+      return 0;
+    });
     setShowNinmu(canNinmuList);
   }
   return (
