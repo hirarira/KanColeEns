@@ -6,8 +6,14 @@ function Search(props) {
   const [showNinmu, setShowNinmu] = React.useState([]);
   const filter = () => {
     // 遠征に出す時間を満たす遠征だけを選別
-    const canNinmuList = NinmuList.filter((ninmu)=>{
+    let canNinmuList = NinmuList.filter((ninmu)=>{
       return props.time >= ninmu.time;
+    });
+    // 残った遠征にポイント付けをしていく
+    canNinmuList = canNinmuList.map((ninmu)=>{
+      ninmu.point = (props.fuel*ninmu.fuel) + (props.bullet*ninmu.bullet)
+        + (props.steel*ninmu.steel) + (props.bauxite*ninmu.bauxite);
+      return ninmu;
     });
     setShowNinmu(canNinmuList);
   }
@@ -41,6 +47,7 @@ function Search(props) {
                   <TableCell align="right">艦隊数</TableCell>
                   <TableCell align="right">必要艦</TableCell>
                   <TableCell align="right">備考</TableCell>
+                  <TableCell align="right">Point</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -59,6 +66,7 @@ function Search(props) {
                       <TableCell align="right">{ninmu.needNum}</TableCell>
                       <TableCell align="right">{ninmu.needKanmusu}</TableCell>
                       <TableCell align="right">{ninmu.remarks}</TableCell>
+                      <TableCell align="right">{ninmu.point}</TableCell>
                     </TableRow>
                   );
                 })}
