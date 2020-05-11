@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, FormControl, InputLabel, 
-  Select, MenuItem, Grid } from '@material-ui/core';
+  Select, MenuItem, Grid, Link } from '@material-ui/core';
 
 import './App.css';
 
@@ -160,6 +160,27 @@ function App() {
                 }
               </Select>
             </FormControl>
+          </Grid>
+          <Grid item xs={4}>
+            <Link
+              href="../../"
+            >
+              TOPに戻る
+            </Link>
+          </Grid>
+          <Grid item xs={4}>
+            <Link
+              href="../library/"
+            >
+              資料室に戻る
+            </Link>
+          </Grid>
+          <Grid item xs={4}>
+            <Link
+              href="./old/"
+            >
+              旧版(ver1.0)を使う
+            </Link>
           </Grid>
         </Grid>
         <Grid item xs={12}>
