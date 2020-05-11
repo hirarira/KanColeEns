@@ -23,7 +23,7 @@ function App() {
     }
   }));
   const classes = useStyles();
-  const hourList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20, 24];
+  const hourList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20, 24, 25, 30, 40, 48, 80];
   const minutesList = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
   const needLabel = ["とても欲しい", "結構ほしい", "どちらでもない", "少し欲しい", "全くいらない"];
   const [enseiHour, setEnseiHour] = React.useState(1);
