@@ -5,8 +5,11 @@ import NinmuList from './Ninmu';
 function Search(props) {
   const [showNinmu, setShowNinmu] = React.useState([]);
   const filter = () => {
-    console.log(props);
-    setShowNinmu(NinmuList);
+    // 遠征に出す時間を満たす遠征だけを選別
+    const canNinmuList = NinmuList.filter((ninmu)=>{
+      return props.time >= ninmu.time;
+    });
+    setShowNinmu(canNinmuList);
   }
   return (
     <Grid container spacing={3}>
@@ -46,7 +49,7 @@ function Search(props) {
                     <TableRow key={ninmu.no}>
                       <TableCell align="right">{ninmu.no}</TableCell>
                       <TableCell align="right">{ninmu.name}</TableCell>
-                      <TableCell align="right">{ninmu.time}</TableCell>
+                      <TableCell align="right">{Math.floor(ninmu.time/60)}時間{ninmu.time%60}分</TableCell>
                       <TableCell align="right">{ninmu.exp}</TableCell>
                       <TableCell align="right">{ninmu.fuel}</TableCell>
                       <TableCell align="right">{ninmu.bullet}</TableCell>
