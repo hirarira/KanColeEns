@@ -170,7 +170,7 @@ function App() {
           </Grid>
           <Grid item xs={4}>
             <Link
-              href="../library/"
+              href="../top/"
             >
               資料室に戻る
             </Link>
